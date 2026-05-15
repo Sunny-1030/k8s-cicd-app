@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: ghcr.io/Sunny-1030/k8s-cicd-app
+  IMAGE_NAME: ghcr.io/sunny-1030/k8s-cicd-app
 
 jobs:
   build-and-update:
@@ -47,7 +47,7 @@ jobs:
     - name: Update image tag in GitOps repo
       run: |
         cd gitops
-        sed -i "s|image: ghcr.io/Sunny-1030/k8s-cicd-app:.*|image: ghcr.io/Sunny-1030/k8s-cicd-app:${{ github.sha }}|g" deployment.yaml
+        sed -i "s|image: ghcr.io/sunny-1030/k8s-cicd-app:.*|image: ghcr.io/sunny-1030/k8s-cicd-app:${{ github.sha }}|g" deployment.yaml
 
     - name: Commit and push GitOps change
       run: |
